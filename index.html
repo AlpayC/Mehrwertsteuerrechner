@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brutto-Netto-Rechner</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav></nav>
+      <section class="calculatorwrapper">
+        <h1>Mehrwertsteuer-Rechner</h1>
+        <form onsubmit="calcTax();return false">
+          <h2>Was soll berechnet werden?</h2>
+          <div class="radiowrapperone">
+            <input
+              type="radio"
+              name="tax"
+              id="nettozubrutto"
+              onchange="changeTxtOne()"
+              value="netto-zu-brutto"
+            />
+            <label for="radio"
+              >Mehrwertsteuer aufschlagen (Netto zu Brutto)</label
+            >
+            <input
+              type="radio"
+              name="tax"
+              id="bruttozunetto"
+              onchange="changeTxtTwo()"
+              value="brutto-zu-netto"
+            />
+            <label for="radio">Mehrwertsteuer abziehen (Brutto zu Netto)</label>
+          </div>
+          <h2>Mehrwertsteuersatz</h2>
+          <div class="radiowrappertwo">
+            <input
+              value="19"
+              type="radio"
+              name="taxvalue"
+              id="nineteenpercent"
+              required
+            />
+            <label for="radio">19 %</label>
+            <input
+              value="19"
+              type="radio"
+              name="taxvalue"
+              id="sevenpercent"
+              required
+            />
+            <label for="radio">7 %</label>
+          </div>
+          <h2 id="netgrosstitle_withouttax">
+            Nettobetrag (Preis ohne Mehrwertsteuer) in Euro*
+          </h2>
+          <div class="wrapperoutput">
+            <input type="number" id="input" required step="0.01" />
+            <button class="btn" type="submit" value="BERECHNEN">
+              <span class="text">Senden</span><span>&#128540;</span>
+            </button>
+          </div>
+        </form>
+        <h3>Ergebnis</h3>
+        <div class="outputwrapper">
+          <div class="outputcontainerone">
+            <h2>Mehrwertsteuerbetrag</h2>
+            <p class="outputone"></p>
+          </div>
+          <div class="outputcontainerone">
+            <h2 id="netgrosstitle">Bruttobetrag(Endpreis)</h2>
+            <p class="outputtwo"></p>
+          </div>
+        </div>
+      </section>
+    </header>
+    <main></main>
+    <footer></footer>
+    <script type="text/javascript" src="./assets/js/main.js"></script>
+  </body>
+</html>
