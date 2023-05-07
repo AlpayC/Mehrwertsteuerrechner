@@ -41,6 +41,7 @@ header {
   background-color: aqua;
   background-color: initial;
   background-image: linear-gradient(#c7f6da, #ffff);
+  transition: all ease-in-out 0.4s;
 }
 .calculatorwrapper {
   display: flex;
@@ -55,6 +56,7 @@ header {
   width: auto;
   border-radius: 20px;
   padding: 4rem;
+  position: relative;
 }
 h1,
 form * {
@@ -182,4 +184,121 @@ h3 {
 .radiowrapperone label,
 .radiowrappertwo label {
   margin-right: 2rem;
+}
+
+.dark {
+  color: rgb(50, 183, 101);
+  background-image: linear-gradient(#000000, #000000);
+  box-shadow: rgba(10, 231, 47, 0.25) 0px 50px 100px -20px,
+    rgba(7, 167, 63, 0.3) 0px 30px 60px -30px,
+    rgba(12, 214, 8, 0.35) 0px -2px 20px 20px inset;
+}
+.dark .calculatorwrapper {
+  background-color: rgb(27, 27, 27);
+  box-shadow: rgba(10, 231, 47, 0.25) 0px 50px 100px -20px,
+    rgba(7, 167, 63, 0.3) 0px 30px 60px -30px,
+    rgba(12, 214, 8, 0.35) 0px -2px 6px 0px;
+}
+
+.toggledark {
+  font-size: 2rem;
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  position: absolute;
+  top: 4rem;
+  right: 4rem;
+  background-image: url(../img/euro.gif);
+}
+
+.toggledark:before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #33ff00,
+    #77ff00,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #00ffa6,
+    #ccac1d,
+    #11c246,
+    #bcd734
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(6px);
+  width: calc(100% + 4px);
+  height: calc(300% + 4px);
+  animation: glowing-toggledark 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+@keyframes glowing-toggledark {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.toggledark:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 300%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+  background-image: url(../img/euro.gif);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.dark .toggledark:before {
+  background: linear-gradient(
+    45deg,
+    #14af03,
+    #00ff48,
+    #097123,
+    #48ff00,
+    #a5d99f,
+    #09ff00,
+    #1d2f25,
+    #66c35e,
+    #189959
+  );
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(300% + 4px);
+  animation: glowing-toggledark 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+.dark .toggledark:after {
+  filter: saturate(700%) contrast(800%) brightness(500%) invert(80%) sepia(50%)
+    hue-rotate(120deg);
 }

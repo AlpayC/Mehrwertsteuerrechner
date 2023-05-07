@@ -50,3 +50,7 @@ const changeTxtTwo = () => {
   netGrossTitleWithoutTax.innerHTML =
     "Bruttobetrag (Preis mit Mehrwertsteuer) in Euro*";
 };
+function getDark() {
+  const wrapper = document.querySelector("header");
+  wrapper.classList.toggle("dark");
+}
